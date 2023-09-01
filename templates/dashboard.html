@@ -1,0 +1,37 @@
+{%extends "base.html"%}
+
+{%block titulo%}Dashboard{%endblock%}
+
+{%block navegacao%}
+    <ul><!-- links para as defs que chamam as páginas de início (index) e de logout -->
+        <li><a href="{{ url_for('home') }}">Início</a></li>
+        <li><a href="{{ url_for('logout') }}">Sair</a></li>
+    </ul>
+{%endblock%}
+
+{%block conteudo%}
+    <section>
+        <h2>Temas cadastrados:</h2>
+        <ul>
+        <!-- variável parCatalogo que é enviada a partir da def dashboard do main.py
+            por meio do parâmetro da função render_template  
+            a variável parCatalogo é iuma lista de temas. O tema é um objeto que possui
+            o atributo .nome e o atributo .series. O atributo .series é uma lista de series. -->                
+            {% for tema in parCatalogo %}
+                <li>{{tema.nome}}</li>
+            {% endfor %}
+        </ul>
+    </section>
+    <section>
+        <h2>Séries cadastradas:</h2>
+        <ul>
+            {% for tema in parCatalogo %}
+                <!-- cada tema possui o atributo .series, que é uma lista de series.
+                cada serie dessa lista é um objeto, que possui o atributo .titulo. -->
+                {% for serie in tema.series %}    
+                    <li>{{serie.titulo}}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </section>        
+{%endblock%} 
