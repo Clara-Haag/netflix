@@ -1,0 +1,22 @@
+{%extends "base.html"%}
+
+{%block titulo%}{{tema_dados}}{%endblock%}
+
+{%block navegacao%}
+    <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="{{ url_for('dashboard') }}">Gerenciar</a></li>
+        <li><a href="{{ url_for('logout') }}">Sair</a></li>
+    </ul>
+{%endblock%}
+
+{%block conteudo%}
+    <h1>Editar {{tema_dados}}</h1>
+    <form method="POST" action="{{ url_for('processar_tema', tema_nome=tema_dados) }}">
+        <input type="text" name="nome_tema" id="nome_tema" placeholder="{{tema_dados}}" value="{{tema_dados}}"/>
+        <input type="submit" value="Atualizar">
+    </form>
+    <form method="POST" action="{{url_for('deletar_tema', tema_nome=tema_dados)}}">
+        <input type="submit" value="Excluir tema">
+    </form>
+{%endblock%}

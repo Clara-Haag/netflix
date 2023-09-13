@@ -1,10 +1,9 @@
 {%extends "base.html"%}
 
-{%block titulo%}Netflix{%endblock%}
+{%block titulo%}Fakeflix{%endblock%}
 
 {%block navegacao%}
     <ul>
-        <!-- mostra o fomulário somente se a pessoa não tiver feito login ainda -->
         {% if session["login"]==False %}
             <form method="post" action="{{ url_for('dashboard') }}">
                 <li><a href="#">Início</a></li>
@@ -12,8 +11,6 @@
                 <li><input type="password" name="senha" placeholder="senha" id="senha"/></li>
                 <li><input type="submit" value="Login"/></li>
             </form>
-        <!-- se a pessoa já fez login, mostra o link para a página de gerenciamento 
-                e  link para fazer logout -->
         {% else %}
             <li><a href="#">Início</a></li>
             <li><a href="{{ url_for('dashboard') }}">Gerenciar</a></li>

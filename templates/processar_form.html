@@ -1,0 +1,19 @@
+{%extends "base.html"%}
+
+{%block titulo%}Tema atualizado{%endblock%}
+
+{%block navegacao%}
+    <ul>
+        <li><a href="{{ url_for('home') }}">Início</a></li>
+        <li><a href="{{ url_for('logout') }}">Sair</a></li>
+    </ul>
+{%endblock%}
+
+{%block conteudo%}
+    <h1>Tema atualizado!</h1>
+    {%if operacao == "modificar"%}
+        <p>O novo nome do tema é {{tema}}</p>
+    {%else%}
+        <p>Tema deletado com sucesso!</p>
+    {%endif%}
+{%endblock%}
