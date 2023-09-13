@@ -1,0 +1,26 @@
+{%extends "base.html"%}
+
+{%block titulo%}Série atualizada{%endblock%}
+
+{%block navegacao%}
+    <ul>
+        <li><a href="{{ url_for('home') }}">Início</a></li>
+        <li><a href="{{ url_for('logout') }}">Sair</a></li>
+    </ul>
+{%endblock%}
+
+{%block conteudo%}
+    <h1>Série atualizada!</h1>
+    {%if operacao == "modificar"%}
+        <img src="{{ url_for('static', filename='images/' + serie.imagem) }}" alt="{{ serie.titulo }}">
+        <ul>
+            <li>Título: {{serie.titulo}}</li>
+            <li>Sinopse: {{serie.sinopse}}</li>
+            <li>Temporadas: {{serie.temporadas}}</li>
+            <li>Avaliação: {{serie.avaliacao}}</li>
+            <li>Elenco: {{serie.elenco}}</li>
+        </ul>
+    {%else%}
+        <p>Série deletada com sucesso!</p>
+    {%endif%}
+{%endblock%}

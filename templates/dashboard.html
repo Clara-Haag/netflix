@@ -14,7 +14,7 @@
         <h2>Temas cadastrados:</h2>
         <ul>              
             {% for tema in parCatalogo %}
-                <li><a href="{{url_for('editar_tema', tema=tema.nome)}}">{{tema.nome}}</a></li>
+                <li><a href="{{url_for('modificar_tema', tema=tema.nome)}}">{{tema.nome}}</a></li>
             {% endfor %}
         </ul>
     </section>
@@ -23,7 +23,7 @@
         <ul>
             {% for tema in parCatalogo %}
                 {% for serie in tema.series %}    
-                    <li>{{serie.titulo}}</li>
+                    <li><a href="{{url_for('modificar_serie', serie_titulo=serie.titulo)}}">{{serie.titulo}}</a></li>
                 {% endfor %}
             {% endfor %}
         </ul>
