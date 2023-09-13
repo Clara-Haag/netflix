@@ -228,8 +228,11 @@ aside{
     background-color: #e50914;
     border:transparent;
     border-radius: 5px;
-    padding: 0.5em;
+    padding-left: 0.5em;
     display: inline-block;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     width:100%;
 }
 .alerta p{
