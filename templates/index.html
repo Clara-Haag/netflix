@@ -25,7 +25,10 @@
     {% with messages = get_flashed_messages() %}  
         {% if messages %}  
         {% for message in messages %}  
-            <h1 class="alerta">{{ message }}</h1>  
+            <div id="alerta" class="alerta">
+                <p>{{message}}</p>
+                <button type="button" class="fechar" onclick="esconder()">&times;</button>
+            </div>
         {% endfor %}  
         {% endif %}  
     {% endwith %}  
@@ -63,4 +66,5 @@
         {% endfor %}
     </section>
     {% endfor %}
+    <script src="{{url_for('static', filename='js/esconder.js')}}"></script>
 {%endblock%}

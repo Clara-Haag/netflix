@@ -226,8 +226,23 @@ aside{
 
 .alerta{
     background-color: #e50914;
-    color: #fff;
-    text-align: center;
-    border: transparent;
+    border:transparent;
     border-radius: 5px;
+    padding: 0.5em;
+    display: inline-block;
+    width:100%;
+}
+.alerta p{
+    color: #fff;
+    font-size: large;
+    display: inline-block;
+}
+.fechar{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    font-size: 1.5em;
+    float: right;
+    box-sizing: border-box;
+    cursor: pointer;
 }
