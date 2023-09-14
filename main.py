@@ -65,6 +65,15 @@ def deletar_tema(tema_nome):
     conteudo = render_template("processar_form_tema.html", operacao="deletar")
     return conteudo
 
+# rota de adição de tema
+@app.route('/criar-tema', methods=["POST"])
+def add_tema():
+    nome = request.form["nome_tema"]
+    novo_tema = Tema(nome)
+    catalogo.append(novo_tema)
+    conteudo = render_template('processar_form_tema.html', operacao="adicionar", tema= novo_tema)
+    return conteudo
+
 # rotas de edição de séries
 @app.route("/editar-serie/<string:serie_titulo>")
 def modificar_serie(serie_titulo):

@@ -13,6 +13,14 @@
     <h1>Tema atualizado!</h1>
     {%if operacao == "modificar"%}
         <p>O novo nome do tema é {{tema}}</p>
+    {%elif operacao == "adicionar"%}
+        <p>Nome: {{tema.nome}}</p>
+        <p>Séries: </p>
+        <ul>
+            {%for serie in tema.series%}
+                <li>{{serie.titulo}}</li>
+            {%endfor%}
+        </ul>
     {%else%}
         <p>Tema deletado com sucesso!</p>
     {%endif%}
