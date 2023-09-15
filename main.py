@@ -45,17 +45,22 @@ def logout():
     return conteudo
 
 # rotas de edição de temas
-@app.route("/editar-tema/<string:tema>")
-def modificar_tema(tema):
-    conteudo = render_template('modificar_tema.html', tema_dados=tema)
+@app.route("/editar-tema/<string:tema_nome>")
+def modificar_tema(tema_nome):
+    for tema in catalogo:
+        if tema.nome == tema_nome:
+            conteudo = render_template('modificar_tema.html', tema=tema, catalogo=catalogo)
     return conteudo
 @app.route("/editar-tema/processar-<string:tema_nome>", methods=["POST"])
 def processar_tema(tema_nome):
     for tema in catalogo:
         if tema.nome == tema_nome:
             tema.nome = request.form["nome_tema"]
-            novo_nome_tema = tema.nome
-    conteudo = render_template("processar_form_tema.html", operacao="modificar",tema=novo_nome_tema)
+            for serie in series:
+                if request.form["series"] in serie.titulo:
+                    tema.adicionar_serie(serie)
+            tema_editado = tema
+    conteudo = render_template("processar_form_tema.html", operacao="modificar",tema=tema_editado)
     return conteudo
 @app.route("/editar-tema/deletar-<string:tema_nome>", methods=["POST"])
 def deletar_tema(tema_nome):
@@ -71,6 +76,9 @@ def add_tema():
     nome = request.form["nome_tema"]
     novo_tema = Tema(nome)
     catalogo.append(novo_tema)
+    for serie in series:
+        if request.form["series"] in serie.titulo:
+            novo_tema.adicionar_serie(serie)
     conteudo = render_template('processar_form_tema.html', operacao="adicionar", tema= novo_tema)
     return conteudo
 

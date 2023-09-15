@@ -12,7 +12,13 @@
 {%block conteudo%}
     <h1>Tema atualizado!</h1>
     {%if operacao == "modificar"%}
-        <p>O novo nome do tema é {{tema}}</p>
+        <p>O novo nome do tema é {{tema.nome}}</p>
+        <p>Séries: </p>
+        <ul>
+            {%for serie in tema.series%}
+                <li>{{serie.titulo}}</li>
+            {%endfor%}
+        </ul>
     {%elif operacao == "adicionar"%}
         <p>Nome: {{tema.nome}}</p>
         <p>Séries: </p>

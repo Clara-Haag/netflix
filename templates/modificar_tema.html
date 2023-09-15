@@ -11,11 +11,21 @@
 
 {%block conteudo%}
     <h1>Editar {{tema_dados}}</h1>
-    <form method="POST" action="{{ url_for('processar_tema', tema_nome=tema_dados) }}">
-        <input type="text" name="nome_tema" id="nome_tema" placeholder="{{tema_dados}}" value="{{tema_dados}}"/>
+    <form method="POST" action="{{ url_for('processar_tema', tema_nome=tema.nome) }}">
+        <input type="text" name="nome_tema" placeholder="{{tema.nome}}" value="{{tema.nome}}"/>
+        <label for="series">Adicionar série</label>
+        <select name="series">
+            {%for tema_c in catalogo%}
+                {%for serie in tema_c.series%}
+                    {%if serie not in tema.series%}
+                        <option value="{{serie.titulo}}">{{serie.titulo}}</option>
+                    {%endif%}
+                {%endfor%}
+            {%endfor%}
+        </select>
         <input type="submit" value="Atualizar">
     </form>
-    <form method="POST" action="{{url_for('deletar_tema', tema_nome=tema_dados)}}">
+    <form method="POST" action="{{url_for('deletar_tema', tema_nome=tema.nome)}}">
         <input type="submit" value="Excluir tema">
     </form>
 {%endblock%}

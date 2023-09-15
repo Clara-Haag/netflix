@@ -56,3 +56,5 @@ serie_suits = Serie("Suits", "suits.jpg", "Mike Ross, um jovem inteligente que a
 tema_drama.adicionar_serie(serie_suits)
 
 catalogo = [tema_suspense, tema_policial, tema_drama]
+
+series = [serie_breaking_bad, serie_casa_de_papel, serie_dark, serie_gambito, serie_lupin, serie_narcos, serie_ozark, serie_stranger_things, serie_suits, serie_the_crown, serie_the_witcher]
