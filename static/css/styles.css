@@ -50,6 +50,10 @@ nav a:hover {
     background-color: #333;
 }
 
+.login{
+    margin-top: 0;
+}
+
 .catalog {
     padding: 50px 0;
     max-width: 1200px;
@@ -281,10 +285,14 @@ textarea {
 .enviar:hover {
     background-color: #e50914a0;
 }
-a {
+section a {
     text-decoration: none;
     color:#fff;
 }
-a:hover{
+section a:hover{
     color:#e50914
+}
+
+footer {
+    padding: 1em;
 }

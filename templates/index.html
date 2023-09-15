@@ -7,9 +7,9 @@
         {% if session["login"]==False %}
             <form method="post" action="{{ url_for('dashboard') }}">
                 <li><a href="#">Início</a></li>
-                <li><input type="email" name="email" placeholder="netflix@email.com" id="email"/></li>
-                <li><input type="password" name="senha" placeholder="senha" id="senha"/></li>
-                <li><input type="submit" value="Login"/></li>
+                <li><input type="email" name="email" placeholder="netflix@email.com" id="email" class="login"/></li>
+                <li><input type="password" name="senha" placeholder="senha" id="senha" class="login"/></li>
+                <li><input type="submit" value="Login" class="login enviar"/></li>
             </form>
         {% else %}
             <li><a href="#">Início</a></li>
