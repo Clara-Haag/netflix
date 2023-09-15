@@ -10,6 +10,7 @@
 {%endblock%}
 
 {%block conteudo%}
+    <h1>Dashboard</h1>
     <section>
         <h2>Temas cadastrados:</h2>
         <ul>              
@@ -19,16 +20,8 @@
         </ul>
         <h3>Adicionar tema:</h3>
         <form action="{{url_for('add_tema')}}" method="POST">
-            <label>Nome: <input type="text" name="nome_tema" placeholder="Digite o nome"></label>
-            <label for="series">Selecione as séries: </label>
-            <select id="series" name="series">
-                {%for tema in parCatalogo%}
-                    {%for serie in tema.series%}
-                        <option value="{{serie}}">{{serie.titulo}}</option>
-                    {%endfor%}
-                {%endfor%}
-            </select>
-            <input type="submit" value="Adicionar novo tema">
+            <label>Nome: <input type="text" name="nome_tema" placeholder="Digite o nome"></label><br/>
+            <input type="submit" value="Adicionar novo tema" class="enviar">
         </form>
     </section>
     <section>

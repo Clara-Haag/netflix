@@ -12,14 +12,14 @@
 {%block conteudo%}
     <h1>Editar {{serie.titulo}}</h1>
     <form method="POST" action="{{url_for('processar_serie', serie_titulo=serie.titulo)}}">
-        <label>Título: <input type="text" name="serie_titulo" placeholder="{{serie.titulo}}" value="{{serie.titulo}}"></label>
-        <label>Sinopse: <textarea type="textarea" name="serie_sinopse" rows="5" cols="35">{{serie.sinopse}}</textarea></label>
-        <label>Temporadas: <input type="number" name="serie_temporadas" value="{{serie.temporadas}}"></label>
-        <label>Avaliação: <input type="text" name="serie_avaliacao" value="{{serie.avaliacao}}"></label>
-        <label>Elenco: <textarea name="serie_elenco" rows="2" cols="25">{{serie.elenco}}</textarea></label>
-        <input type="submit" value="Atualizar">
+        <label>Título: <input type="text" name="serie_titulo" placeholder="{{serie.titulo}}" value="{{serie.titulo}}"></label> <br/>
+        <label>Sinopse: <textarea type="textarea" name="serie_sinopse" rows="5" cols="35">{{serie.sinopse}}</textarea></label> <br/>
+        <label>Temporadas: <input type="number" name="serie_temporadas" value="{{serie.temporadas}}"></label> <br/>
+        <label>Avaliação: <input type="text" name="serie_avaliacao" value="{{serie.avaliacao}}"></label> <br/>
+        <label>Elenco: <textarea name="serie_elenco" rows="2" cols="25">{{serie.elenco}}</textarea></label> <br/>
+        <input type="submit" value="Atualizar" class="enviar">
     </form>
     <form method="POST" action="{{url_for('deletar_serie', serie_titulo=serie.titulo)}}">
-        <input type="submit" value="Excluir série">
+        <input type="submit" value="Excluir série" class="enviar">
     </form>
 {%endblock%}

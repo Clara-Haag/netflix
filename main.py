@@ -59,6 +59,8 @@ def processar_tema(tema_nome):
             for serie in series:
                 if request.form["series"] in serie.titulo:
                     tema.adicionar_serie(serie)
+                elif request.form['remover_series'] == serie.titulo:
+                    tema.series.remove(serie)
             tema_editado = tema
     conteudo = render_template("processar_form_tema.html", operacao="modificar",tema=tema_editado)
     return conteudo
@@ -76,9 +78,6 @@ def add_tema():
     nome = request.form["nome_tema"]
     novo_tema = Tema(nome)
     catalogo.append(novo_tema)
-    for serie in series:
-        if request.form["series"] in serie.titulo:
-            novo_tema.adicionar_serie(serie)
     conteudo = render_template('processar_form_tema.html', operacao="adicionar", tema= novo_tema)
     return conteudo
 
